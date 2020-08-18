@@ -12,3 +12,7 @@ $ docker container start todo_db
 # To run api
 $ yarn start
 ```
+
+Dependencias
+jest
+ts-jest
