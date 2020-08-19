@@ -1,7 +1,7 @@
 import express from 'express';
 import { Sequelize } from 'sequelize';
 import routes from './routes';
-import configDB from '../config/config';
+import configDB from './config/config';
 
 const app = express();
 const port = 3000;
