@@ -1,12 +1,22 @@
 import express from 'express';
+import { Sequelize } from 'sequelize';
+import routes from './routes';
+import configDB from '../config/config';
 
 const app = express();
+const port = 3000;
 
-const port = process.env.PORT || 33333;
-
+app.use(routes);
 app.listen(port);
 
-app.use(express.json());
+const sequelize = new Sequelize(configDB);
 
-// eslint-disable-next-line no-console
-console.info(`Servidor rodando na porta ${port}`);
+try {
+  sequelize.authenticate();
+  console.log('Conexão com o banco de dados feita com sucesso!');
+} catch (error) {
+  console.log('Erro ao conectar ao banco de dados');
+  console.log(error);
+}
+
+console.log(`Servidor rodando na porta ${port}`);
