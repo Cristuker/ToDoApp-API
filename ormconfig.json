@@ -4,5 +4,11 @@
     "port": 5432,
     "username": "postgres",
     "password": "todo123",
-    "database": "todo_db"
+    "database": "database_todo",
+    "entities": ["entity/*.js"],
+    "migrationsTableName": "custom_migration_table",
+    "migrations": ["./src/database/migrations/*.ts"],
+    "cli": {
+        "migrationsDir": "./src/database/migrations"
+    }
 }

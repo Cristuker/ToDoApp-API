@@ -34,6 +34,7 @@
     },
     "scripts": {
         "start": "docker container start todo_db && tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-        "lint": "eslint '*/**/*.{js,ts}' --quiet --fix"
+        "lint": "eslint '*/**/*.{js,ts}' --quiet --fix",
+        "typeorm": "tsnd ./node_modules/typeorm/cli.js"
     }
 }
