@@ -14,6 +14,14 @@ class UserController {
       return response.status(401).send('Invalid request, please check the body');
     }
 
+    const {
+      password, passwordConfirmation,
+    } = request.body;
+
+    if (password !== passwordConfirmation) {
+      return response.status(409).send('The password and passwordConfirmation should be equal');
+    }
+
     return response.status(200).json('Created');
   }
 }
