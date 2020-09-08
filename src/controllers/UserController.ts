@@ -6,13 +6,14 @@ class UserController {
     const schema = Yup.object({
       name: Yup.string().required().min(2),
       email: Yup.string().required().email(),
-      password: Yup.string().required().min(4),
-      passwordConfirmation: Yup.string().required().min(4),
+      password: Yup.string().required().min(3),
+      passwordConfirmation: Yup.string().required().min(3),
     });
 
     if (!(await schema.isValid(request.body))) {
       return response.status(401).send('Invalid request, please check the body');
     }
+
     return response.status(200).json('Created');
   }
 }
